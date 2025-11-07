@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+
+    <style>
+        .colore-titolo-1 {
+            color: red;
+        }
+
+        .colore-titolo-2 {
+            color: green;
+        }
+
+        .modale1 {
+            width: 300px;
+            height: 500px;
+            background-color: black;
+            border: 2px solid red;
+            border-radius: 15px;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            display: none;
+        }
+
+        .modale2 {
+            width: 300px;
+            height: 500px;
+            background-color: black;
+            border: 2px solid red;
+            border-radius: 15px;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+        }
+
+        .nascondi {
+            display: none;
+        }
+
+        .testo-modale {
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titolo" class="colore-titolo-1">Ciao Mondo!</h1>
+
+    <br>
+
+    <p id="testo">ciao sono leonardo</p>
+
+    <br>
+
+    <button onclick="cambiaColore()">Cambia Colore</button>
+
+    <br>
+
+    <!-- Modale 1 con mostra e chiudi modale separati -->
+    <div class="modale1">
+        <button onclick="chiudiModale()">chiudi</button>
+        <span class="testo-modale">Ciao Mond 1</span>
+    </div>
+
+    <br>
+
+    <button onclick="mostraModale()">Mostra PopUp 1</button>
+
+    <br>
+
+    <!-- Modale 2 con mostra e chiudi attivati dalla stessa funzione, rimuovendo e rimettendo la classe nascondi sul div -->
+    <div class="modale2 nascondi">
+        <button onclick="toggleModal()">chiudi</button>
+        <span class="testo-modale">Ciao Mondo 2</span>
+    </div>
+
+    <br>
+
+    <button onclick="toggleModal()">Mostra PopUp 2</button>
+
+    <br>
+    <br>
+
+    <button id="bottoneTesto">cambia testo</button>
+
+    <script>
+        function cambiaColore() {
+            const titolo = document.getElementById('titolo');
+
+            // primo metodo per cambiare di colore al titolo
+            //titolo.classList.remove('colore-titolo-1');
+            //titolo.classList.add('colore-titolo-2');
+
+            // secondo metodo per cambiare di colore al titolo
+            titolo.style.color = 'green';
+        }
+
+        function mostraModale() {
+            // lista di elementi html che hanno la classe 'modale'
+            const modale = document.getElementsByClassName('modale1');
+            console.log(modale[0]); // come con gli array possiamo usare [0] per prendere il primo elemento della lista
+        
+            // andiamo a mettere l'elemento come disaply block andando così a sovrascrivere il disaply none che abbiamo messo alla classe modale
+            modale[0].style.display = 'block';
+        }
+
+        function chiudiModale() {
+            const modale = document.getElementsByClassName('modale1');        
+            
+            // andiamo a mettere l'elemento come disaply none andando così a sovrascrivere il disaply block messo in precedenza quando abbiamo aperto la modale
+            modale[0].style.display = 'none';
+        }
+
+        // con il toggle possiamo togliere e mettere una classe su un elemento con lo stesso click
+        function toggleModal() {
+            const modale = document.getElementsByClassName('modale2'); 
+            modale[0].classList.toggle('nascondi');
+        }
+
+        // cambia il contenuto del testo nel paragrafo con id 'testo' a 'ciao è venerdì'
+        function cambiaTesto() {
+            const testo = document.getElementById('testo');
+            console.log(testo.textContent);
+            testo.textContent = 'ciao è venerdì';
+        }
+
+        // questo è un modo altrnativo per eseguire del codice quando n bottone viene cliccato
+        // invece di usare onclick sul bottone, andiamo a mettere un id sul bottone
+        // lo andiamo a riprendere con 'getElementById' e usiamo 'addEventListener' per ascoltare un evento di 'click'
+        const bottoneTesto = document.getElementById('bottoneTesto');
+        bottoneTesto.addEventListener('click', cambiaTesto);
+    </script>
+</body>
+</html>

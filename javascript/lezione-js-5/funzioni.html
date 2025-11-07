@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // la funziona una volta che è stata dichiarata esegue il codice al suo interno
+        // solo se viene poi chiamata (esempio: saluta();)
+        function saluta() {
+            console.log('Ciao Mondo!');
+        }
+
+        saluta();
+
+        // le funzioni posso prendere dei parametri (esempio: nome) che possiamo chiamare come vogliamo
+        function salutaPersona(nome, cognome) {
+            console.log(`Ciao ${nome} ${cognome}`);
+        }
+
+        salutaPersona('Leonardo', 'Mazzoleni');
+
+        salutaPersona('Lorenzo', 'Boccadamo');
+
+        function somma(numeroA, numeroB) {
+            return numeroA + numeroB;
+        }
+
+        const risultato = somma(10, 5); // dato che abbiamo usato il return, somma(10, 5) si trasformerà nel valore di 15
+
+        console.log(risultato);
+
+        // questo modo di scrivere le funzioni è chiamato (arrow function) ed è un modo
+        // più moderno di scrivere le funzioni, ma sostanzialmente è la stessa cosa della
+        // funzione somma() vista precedentemente.
+        const sottrazione2 = (a, b) => {
+            return a - b;
+        }
+
+        sottrazione2(10, 5);
+
+        // FUNZIONI TEMPORANEE
+
+        const macchina = {
+            brand: 'tesla',
+            modello: 'model 3',
+            colore: 'bianco',
+            // è possibile creare delle funzioni temporanee con questa sintassi () => {}.
+            // non hanno un nome, vengno create sul momento, in questo caso vieni creata
+            // quando viene chiamato macchina.calcolaRata()
+            calcolaRata: () => {    
+                return 234;
+            }
+        }
+
+        console.log(macchina.calcolaRata());
+    </script>
+</body>
+</html>
