@@ -29,8 +29,10 @@ def contact(request):
             form.send_email()
 
             return redirect('contact')
+    else:   
+        form = ContactForm()
 
-    return render(request, 'contact.html', {'form': ContactForm()})
+    return render(request, 'contact.html', {'form': form})
 
 
 def posts(request):

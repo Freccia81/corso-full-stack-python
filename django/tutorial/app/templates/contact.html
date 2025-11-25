@@ -6,8 +6,23 @@
 
 <form action="{% url 'contact' %}" method="post">
     {% csrf_token %}
+
+    {{ form.non_field_errors }}
     
-    {{ form.as_p }}
+    <p>
+        {{form.name.label_tag}} {{ form.name }}
+        <div style="color: red;">{{ form.name.errors }}</div>
+    </p>
+
+    <p>
+        {{form.email.label_tag}} {{ form.email }}
+        <div style="color: red;">{{ form.email.errors }}</div>
+    </p>
+
+    <p>
+        {{form.message.label_tag}} {{ form.message }}
+        <div style="color: red;">{{ form.message.errors }}</div>
+    </p>
 
     <button type="submit">invia</button>
 </form>
