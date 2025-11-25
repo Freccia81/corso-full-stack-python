@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
 from .forms import ContactForm
 
@@ -21,9 +21,16 @@ def index(request):
 
 
 def contact(request):
-    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
 
-    return render(request, 'contact.html', {'form': form})
+        if form.is_valid():
+            # invia email
+            form.send_email()
+
+            return redirect('contact')
+
+    return render(request, 'contact.html', {'form': ContactForm()})
 
 
 def posts(request):

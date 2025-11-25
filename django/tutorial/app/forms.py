@@ -10,4 +10,6 @@ class ContactForm(forms.Form):
     message = forms.CharField(
         widget=forms.Textarea
     )
-    
+
+    def send_email(self):
+        print(self.cleaned_data['name'], self.cleaned_data['email'], self.cleaned_data['message'])

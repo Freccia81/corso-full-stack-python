@@ -4,16 +4,11 @@
 {% block content %} 
 <h1>compila il form per contattarci</h1>
 
-<form>
-    <label>nome</label>
-    <input>
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
 
-    <label>email</label>
-    <input>
-
-    <label>messaggio</label>
-    <textarea></textarea>
-
-    <button>invia</button>
+    <button type="submit">invia</button>
 </form>
 {% endblock %}
