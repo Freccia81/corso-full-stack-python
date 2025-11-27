@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Utenti {% endblock %}
+
+{% block content %} 
+<div>
+    ciao
+
+    {% for user in users %}
+        <h2>{{ user.name }} {{ user.surname }}</h2>
+
+        <ul>
+        {% for post in user.posts.all %}
+            <li>
+                <strong>{{ post.title }}</strong><br>
+                {{ post.content }}
+            </li>
+        {% empty %}
+            <li>No posts</li>
+        {% endfor %}
+        </ul>
+
+        <hr>
+    {% endfor %}
+
+
+    {{test}}
+
+    <img src="{% static 'images/dog.jpg'%}">
+
+    <br>
+    <br>
+
+    {% for user in users %}
+    <div>{{ user }}</div>
+    {% endfor %}
+
+    {% if singolo %}
+    <div>{{ singolo }}</div>
+    {% endif %}
+
+    <br>
+    <br>
+
+    {{ singolo }}
+
+    <br>
+    <br>
+
+    {{ filtrato }}
+
+    <br>
+    <br>
+
+    {% for user in utenti_raw %}
+    <div>{{ user }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
