@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'users_app.apps.UsersAppConfig',
     'posts_app.apps.PostsAppConfig',
+    'auth_app.apps.AuthAppConfig',
     'silk',
 ]
 

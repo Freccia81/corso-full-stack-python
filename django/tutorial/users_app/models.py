@@ -1,6 +1,5 @@
 from django.db import models
 from .querysets import UserQuerySet
-from datetime import datetime
 
 
 # Create your models here.
