@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-h78#5m66iq-atz7z90@a#-x07nl1_6(c^$f+(b(u8hndt#dgl+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#ALLOWED_HOSTS = ['lesson.fastconfig.it'] in produzione qui ci va il nome del vostro dominio
 ALLOWED_HOSTS = []
+
+#CSRF_TRUSTED_ORIGINS = ['https://lesson.fastconfig.it'] in produzione qui ci va il nome del vostro dominio con tutta la url https, altrimenti i form nn funzionano
 
 LOGIN_URL = 'login'
 
